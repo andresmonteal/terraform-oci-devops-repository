@@ -15,7 +15,7 @@ locals {
 resource "oci_devops_repository" "main" {
   #Required
   name            = var.name
-  project_id      = data.oci_devops_projects.project.project_collection[0].id
+  project_id      = data.oci_devops_projects.project.project_collection[0].items[0].id
   repository_type = var.type
 
   #Optional

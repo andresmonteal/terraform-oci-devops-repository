@@ -10,13 +10,12 @@ locals {
     module      = "oracle-terraform-oci-devops-repository"
   }
   merged_freeform_tags = merge(var.freeform_tags, local.default_freeform_tags)
-  compartment_id       = try(data.oci_identity_compartments.compartment.compartments[0].id, var.compartment_id)
 }
 
 resource "oci_devops_repository" "main" {
   #Required
   name            = var.name
-  project_id      = local.compartment_id
+  project_id      = data.oci_devops_projects.project.project_collection[0].id
   repository_type = var.type
 
   #Optional

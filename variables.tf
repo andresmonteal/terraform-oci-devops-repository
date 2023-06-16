@@ -41,7 +41,7 @@ variable "project_name" {
 variable "default_branch" {
   description = "(Optional) (Updatable) The default branch of the repository."
   type        = string
-  default     = "main"
+  default     = "refs/heads/main"
 }
 
 variable "freeform_tags" {
